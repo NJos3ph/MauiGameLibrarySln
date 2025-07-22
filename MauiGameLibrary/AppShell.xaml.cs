@@ -6,5 +6,14 @@
         {
             InitializeComponent();
         }
+
+
+        private void RegisterRoutes()
+        {
+
+            Routing.RegisterRoute("updategameroute", typeof(Views.UpdateGameView));
+        
+        }
+
     }
 }

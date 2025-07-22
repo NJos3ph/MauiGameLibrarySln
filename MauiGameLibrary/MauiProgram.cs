@@ -26,6 +26,9 @@ namespace MauiGameLibrary
             builder.Services.AddTransient<ListOfGamesViewModel>();
             builder.Services.AddSingleton<GameDataService>();
 
+            builder.Services.AddTransient<UpdateGameView>();
+            builder.Services.AddSingleton<UpdateGameViewModel>();
+
             return builder.Build();
         }
     }

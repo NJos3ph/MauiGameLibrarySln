@@ -4,31 +4,51 @@
              xmlns:viewmodels="clr-namespace:MauiGameLibrary.ViewModels"
              xmlns:models="clr-namespace:MauiGameLibrary.Models"
              x:Class="MauiGameLibrary.Views.ListOfGamesView"
-             Title="ListOfGamesView"  
+             Title="Game Library"  
              x:DataType="viewmodels:ListOfGamesViewModel">
-    <CollectionView ItemsSource="{Binding Games}">
+
+ <!--    BELOW ALLOWS YOU TO EDIT THE TITLE VIEW AND ADD STUFF
+    <Shell.TitleView>
+
+        <Label Text="GammeLibrary"/>
+
+    </Shell.TitleView>   -->
+    
+    <CollectionView ItemsSource="{Binding Games}" SelectionMode="Single" SelectedItem="{Binding SelectedGame}"   SelectionChangedCommand="{Binding GameSelectedCommand}">
         <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="models:GameInformation">
                 <Grid Padding="5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
+                       
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
 
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
-                       
+                        <ColumnDefinition Width="*" />
+
 
                     </Grid.ColumnDefinitions>
 
+                  <!--  <Border>
+
+                        <Border.StrokeShape>
+                            
+                            <RoundRectangle CornerRadius="30"
+                            
+                        </Border.StrokeShape>
+                        
+                        
+                    </Border>   -->
+
                     <Image  Grid.RowSpan="2" Source="{Binding Image}" Aspect="AspectFill" HeightRequest="80" WidthRequest="80"/>
 
-                    <Label Text="{Binding Title}" Grid.Column="1"/>
-                    <Label Text="{Binding GameType}" Grid.Column="1" Grid.Row="1"/>
-
+                    <Label Grid.ColumnSpan="2" FontAttributes="Bold"  Margin="5"  Text="{Binding Title}" Grid.Column="1"/>
+                    <Label FontAttributes="Italic" TextColor="Grey"  Margin="5"  Text="{Binding GameType}" Grid.Column="1" Grid.Row="1"/>
+                    <Label FontSize="18" FontAttributes="Bold" TextColor="Red"  HorizontalOptions="End"  Grid.Column="2" Grid.Row="1" Text="{Binding AgeRestriction} " Margin="5" />
                 </Grid>
                 
                 
