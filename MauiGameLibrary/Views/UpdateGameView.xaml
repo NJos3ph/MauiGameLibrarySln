@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<views:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:MauiGameLibrary.ViewModels"
+             xmlns:views="clr-namespace:MauiGameLibrary.Views"
              x:Class="MauiGameLibrary.Views.UpdateGameView"
              Title="UpdateGameView" x:DataType="viewmodels:UpdateGameViewModel">
 
@@ -21,11 +22,16 @@
 
         </Grid.RowDefinitions>
 
-        <Label Text="Title"/>
-        <Entry Grid.Column="0" HorizontalOptions="End"  Text="{Binding SelectedGame.}"/>
+        <Label Grid.Row="1"  Text="Title"/>
+        <Entry Grid.Column="0" Grid.Row="1"  HorizontalOptions="End"  Text="{Binding SelectedGame.Title}" Placeholder="Add Title" />
+        <Image Grid.Row="0" HorizontalOptions="Center" Source="{Binding SelectedGame.Image}" />
 
+        <Label Text="Description" />
+        <Editor Grid.Row="3" HeightRequest="100" Text="{Binding SelectedGaame.Description}"  />
+
+        <Picker ItemsSource="{Binding }" />
 
     </Grid>
-    
-    
-</ContentPage>
+
+
+</views:BasePage> 

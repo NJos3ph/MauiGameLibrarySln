@@ -14,13 +14,40 @@ namespace MauiGameLibrary.Services
 
 
        private List<GameInformation> _gameInformation = new List<GameInformation>();
+       private List<GameType> _gameTypes = new List<GameType>();
 
 
         public GameDataService()
         {
 
             CreateFakeGameInformation();
-        
+            PrePopulateData();
+        }
+
+        public void PrePopulateData()
+        {
+
+            PrePopulateGameTypes();
+
+        }
+
+        public void PrePopulateGameTypes()
+        {
+
+            GameType gameType = new GameType() { Name = "Nintendo 64", Description = "Nintendo's 64 bit Console" };
+            _gameTypes.Add(gameType);
+
+             gameType = new GameType() { Name = "Nintendo Wii", Description = "Nintendo's family motion Console" };
+            _gameTypes.Add(gameType);
+
+            gameType = new GameType() { Name = "Nintendo Switch", Description = "Nintendo's handheld Console" };
+            _gameTypes.Add(gameType);
+
+            gameType = new GameType() { Name = "Playstation 5", Description = "Sony's Latest Console" };
+            _gameTypes.Add(gameType);
+
+
+
         }
 
         public List<GameInformation> GetAllGameInformation()
@@ -37,7 +64,7 @@ namespace MauiGameLibrary.Services
             {
                 Id = Guid.NewGuid().ToString(),
                 Title = "The Legend of Zelda: Breath of the Wild",
-                GameType = "Action-Adventure",
+                GameType = "Nintendo Wii",
                 CompanyName = "Nintendo",
                 Genre = "Adventure",
                 AgeRestriction = "E10+",
@@ -50,7 +77,7 @@ namespace MauiGameLibrary.Services
             {
                 Id = Guid.NewGuid().ToString(),
                 Title = "Super Mario Odyssey",
-                GameType = "Platformer",
+                GameType = "Nintendo Switch",
                 CompanyName = "Nintendo",
                 Genre = "Platformer",
                 AgeRestriction = "E",
@@ -96,6 +123,13 @@ namespace MauiGameLibrary.Services
         {
             return _gameInformation.Where(gameInfo => gameInfo.Title == title).ToList();
 
+        }
+
+        public List<GameType> GetGamesType() 
+        {
+            return _gameTypes;
+
+           
 
         }
 

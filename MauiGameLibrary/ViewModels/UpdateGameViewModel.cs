@@ -1,4 +1,5 @@
-﻿using MauiGameLibrary.Services;
+﻿using MauiGameLibrary.Models;
+using MauiGameLibrary.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,26 @@ namespace MauiGameLibrary.ViewModels
         //This lets this class know about Games Data service/ update and use
         private GameDataService _gameDataService;
 
+
+        private List<GameType> _gameTypes;
+
+        public List<GameType> GameTypes
+        {
+
+            get {return _gameTypes; }
+            set { _gameTypes = value;
+                OnPropertyChanged();
+            }
+        
+        }
+
+
         public UpdateGameViewModel(GameDataService gameDataService)
         {
             _gameDataService = gameDataService;
         }
+
+       
 
     }
 }

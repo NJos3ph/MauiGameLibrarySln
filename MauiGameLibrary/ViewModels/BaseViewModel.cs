@@ -17,5 +17,14 @@ namespace MauiGameLibrary.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public virtual void OnAppearing()
+        { 
+        
+            //This Method can be overridden in dericed classes to handel when the view appears
+        
+        }
+
     }
+
 }
