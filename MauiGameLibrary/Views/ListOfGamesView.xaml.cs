@@ -17,7 +17,7 @@ public partial class ListOfGamesView : ContentPage
     {
         base.OnAppearing();
 
-		ListOfGamesViewModel vm = BindingContext as ListOfGamesViewModel;
+        ListOfGamesViewModel? vm = BindingContext as ListOfGamesViewModel;
 
 		if (vm != null)
 		{

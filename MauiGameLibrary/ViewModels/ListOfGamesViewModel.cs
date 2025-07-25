@@ -66,7 +66,7 @@ namespace MauiGameLibrary.ViewModels
             
             };
 
-            await AppShell.Current.GoToAsync("updategameroute", param);//the strong here is a root   !!! it needs to be registered/ in appshell
+            await AppShell.Current.GoToAsync("updategameroute", param);//the string here is a root   !!! it needs to be registered/ in appshell
         }
 
         public void RefreshGames()
